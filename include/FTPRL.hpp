@@ -14,7 +14,7 @@ public:
   : alpha(_alpha), beta(_beta), lambda1(_lambda1), lambda2(_lambda2)
   { }
   
-  virtual ~FTPRL { }
+  virtual ~FTPRL() { }
 
   const double get_w(const double z, const double n) const {
     if (n < 0) return 0;
@@ -24,7 +24,7 @@ public:
   
   void update_zn(const double g, double* z, double* n) {
     if (g == 0) return;
-    double sigma = (std::sqrt(n + g * g) - std::sqrt(n)) / alpha;
+    double sigma = (std::sqrt(*n + g * g) - std::sqrt(*n)) / alpha;
     *z = *z + g - sigma * get_w(*z, *n);
     *n = *n + g * g;
   }
