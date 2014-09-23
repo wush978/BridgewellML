@@ -5,7 +5,7 @@ namespace FTPRL {
 /**
  * Abstract Type of Matrix Data
  */
-template<typename IndexType>
+template<typename IndexType, typename ItorType>
 class Matrix {
 
 protected:
@@ -18,17 +18,21 @@ public:
   
   virtual ~Matrix() { }
   
-  virtual IndexType nfeature() const = 0;
+  inline IndexType nfeature() const {
+    return ncol;
+  }
   
-  virtual IndexType ninstance() const = 0;
+  inline IndexType ninstance() const {
+    return nrow;
+  }
   
-  virtual IndexType getFeatureItorBegin(IndexType instance_id) const = 0;
+  virtual ItorType getFeatureItorBegin(IndexType instance_id) const = 0;
   
-  virtual IndexType getFeatureItorEnd(IndexType instance_id) const = 0;
+  virtual ItorType getFeatureItorEnd(IndexType instance_id) const = 0;
   
-  virtual IndexType getFeatureId(IndexType feature_iterator) const = 0;
+  virtual IndexType getFeatureId(ItorType feature_iterator) const = 0;
   
-  virtual double getValue(IndexType feature_iterator) const = 0;
+  virtual double getValue(ItorType feature_iterator) const = 0;
   
 };
 

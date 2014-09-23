@@ -17,6 +17,7 @@ public:
   virtual ~FTPRL { }
 
   const double get_w(const double z, const double n) const {
+    if (n < 0) return 0;
     if (std::abs(z) <= lambda1) return 0;
     return - (z - (z > 0 ? 1 : -1) * lambda1) / ((beta + std::sqrt(n)) / alpha + lambda2);
   }
