@@ -32,21 +32,21 @@ public:
     }
   }
   
-  template<typename IndexType, typename ItorType>
+  template<typename ItorType>
   void update(Matrix<IndexType, ItorType>* m, bool* y) {
     for(IndexType instance_id = 0;instance_id < m->ninstance;instance_id++) {
       double pred = 0, g0 = 0;
       #pragma omp parallel for
-      for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id), iter++) {
-        IndexType feature_d = getFeatureId(iter);
+      for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id); iter++) {
+        IndexType feature_id = getFeatureId(iter);
         double value = getValue(iter);
-        double w = ftrl->get_w(z[feature_id], n[feature_id]);
+        double w = ftprl->get_w(z[feature_id], n[feature_id]);
         pred += value * w;
       }
       pred = sigma(pred);
       g0 = pred - y[instance_id];
       #pragma omp parallel for
-      for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id), iter++) {
+      for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id); iter++) {
         IndexType feature_id = getFeatureId(iter);
         double value = getValue(iter);
         double g = value * g0;
