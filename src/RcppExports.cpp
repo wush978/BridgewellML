@@ -5,14 +5,15 @@
 
 using namespace Rcpp;
 
-// hello
-void hello(NumericMatrix src);
-RcppExport SEXP FTPRL_hello(SEXP srcSEXP) {
+// update_FTPRLLogisticRegression_matrix
+void update_FTPRLLogisticRegression_matrix(NumericMatrix Rm, S4 Rlearner);
+RcppExport SEXP FTPRL_update_FTPRLLogisticRegression_matrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     {
         Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< NumericMatrix >::type src(srcSEXP );
-        hello(src);
+        Rcpp::traits::input_parameter< NumericMatrix >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        update_FTPRLLogisticRegression_matrix(Rm, Rlearner);
     }
     return R_NilValue;
 END_RCPP
