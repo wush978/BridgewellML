@@ -1,6 +1,9 @@
 FTPRLLogisticRegression <- "FTPRLLogisticRegression"
 
 #'@exportClass FTPRLLogisticRegression
+#'@title Prameters of Logistic Regression with FTPRL
+#'@name FTPRLLogisticRegression
+#'@seealso \link{FTPRL}
 setClass(FTPRLLogisticRegression, representation(z = "numeric", n = "numeric"), contains = "FTPRL")
 
 #'@export
