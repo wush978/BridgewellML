@@ -34,7 +34,7 @@ public:
   
   template<typename ItorType, typename LabelType>
   void update(Matrix<IndexType, ItorType>* m, LabelType* y) {
-    for(IndexType instance_id = 0;instance_id < m->ninstance();instance_id++) {
+    for(IndexType instance_id = 0;instance_id < m->getNInstance();instance_id++) {
       double pred = 0, g0 = 0;
       #pragma omp parallel for
       for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id); iter++) {
@@ -58,7 +58,7 @@ public:
   template<typename ItorType>
   void predict(Matrix<IndexType, ItorType>* m, double* y) {
     #pragma omp parallel for
-    for(IndexType instance_id = 0;instance_id < m->ninstance();instance_id++) {
+    for(IndexType instance_id = 0;instance_id < m->getNInstance();instance_id++) {
       double& pred(y[instance_id]);
       pred = 0;
       for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id); iter++) {
