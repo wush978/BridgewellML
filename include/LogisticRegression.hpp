@@ -32,8 +32,8 @@ public:
     }
   }
   
-  template<typename ItorType>
-  void update(Matrix<IndexType, ItorType>* m, bool* y) {
+  template<typename ItorType, typename LabelType>
+  void update(Matrix<IndexType, ItorType>* m, LabelType* y) {
     for(IndexType instance_id = 0;instance_id < m->ninstance;instance_id++) {
       double pred = 0, g0 = 0;
       #pragma omp parallel for
