@@ -53,9 +53,24 @@ public:
         ftprl->update_zn(g, z + feature_id, n + feature_id);
       }
     }
-    
   }
-  
+
+  template<typename ItorType>
+  void predict(Matrix<IndexType, ItorType>* m, double* y) {
+    #pragma omp parallel for
+    for(IndexType instance_id = 0;instance_id < m->ninstance();instance_id++) {
+      double& pred(y[instance_id]);
+      pred = 0;
+      for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id); iter++) {
+        IndexType feature_id = m->getFeatureId(iter);
+        double value = m->getValue(iter);
+        double w = ftprl->get_w(z[feature_id], n[feature_id]);
+        pred += value * w;
+      }
+      pred = sigma(pred);
+    }
+  }
+
   inline static double sigma(double x) {
     return 1 / (1 + std::exp(-x));
   }
