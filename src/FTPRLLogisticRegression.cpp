@@ -14,7 +14,7 @@ void update_FTPRLLogisticRegression_matrix(NumericMatrix Rm, LogicalVector y, S4
   std::shared_ptr<FTPRLProxy> learner(new FTPRLProxy(Rlearner));
   typedef FTPRL::LogisticRegression<int> LR;
   double *z = REAL(Rlearner.slot("z")), *n = REAL(Rlearner.slot("n"));
-  std::shared_ptr<LR>(new LR(learner, m->nfeature(), z, n))->update<size_t, int>(m.get(), LOGICAL(y));
+  std::shared_ptr<LR>(new LR(learner, m->getNFeature(), z, n))->update<size_t, int>(m.get(), LOGICAL(y));
 }
 
 //'@export
@@ -24,8 +24,8 @@ SEXP predict_FTPRLLogisticRegression_matrix(NumericMatrix Rm, S4 Rlearner) {
   std::shared_ptr<FTPRLProxy> learner(new FTPRLProxy(Rlearner));
   typedef FTPRL::LogisticRegression<int> LR;
   double *z = REAL(Rlearner.slot("z")), *n = REAL(Rlearner.slot("n"));
-  NumericVector retval(m->ninstance(), 0.0);
+  NumericVector retval(m->getNInstance(), 0.0);
   double *pretval = REAL(wrap(retval));
-  std::shared_ptr<LR>(new LR(learner, m->nfeature(), z, n))->predict<size_t>(m.get(), pretval);
+  std::shared_ptr<LR>(new LR(learner, m->getNFeature(), z, n))->predict<size_t>(m.get(), pretval);
   return retval;
 }
