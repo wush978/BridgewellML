@@ -1,5 +1,5 @@
 Package: FTPRL
-Version: 0.1
+Version: @VERSION@
 Date: 2014-09-23
 Title: Follow The Proximal Regularized Leader
 Author: Wush Wu
