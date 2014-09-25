@@ -16,6 +16,6 @@ init_FTPRLLogisticRegression <- function(alpha, beta, lambda1, lambda2, nfeature
 }
 
 #'@export
-update_FTPRLLogisticRegression <- function(data, learner) {
+update_FTPRLLogisticRegression <- function(data, y, learner) {
   UseMethod("update_FTPRLLogisticRegression")
 }

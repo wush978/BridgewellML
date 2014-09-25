@@ -2,7 +2,7 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #'@export
-update_FTPRLLogisticRegression.matrix <- function(Rm, Rlearner) {
-    invisible(.Call('FTPRL_update_FTPRLLogisticRegression_matrix', PACKAGE = 'FTPRL', Rm, Rlearner))
+update_FTPRLLogisticRegression.matrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('FTPRL_update_FTPRLLogisticRegression_matrix', PACKAGE = 'FTPRL', Rm, y, Rlearner))
 }
 
