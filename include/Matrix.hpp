@@ -9,21 +9,21 @@ template<typename IndexType, typename ItorType>
 class Matrix {
 
 protected:
-  IndexType ncol, nrow;
+  IndexType nfeature, ninstance;
 
 public:
 
-  Matrix(IndexType _ncol, IndexType _nrow) :
-  ncol(_ncol), nrow(_nrow) { }
+  Matrix(IndexType _nfeature, IndexType _ninstance) :
+  nfeature(_nfeature), ninstance(_ninstance) { }
   
   virtual ~Matrix() { }
   
-  inline IndexType nfeature() const {
-    return ncol;
+  inline IndexType getNFeature() const {
+    return nfeature;
   }
   
-  inline IndexType ninstance() const {
-    return nrow;
+  inline IndexType getNInstance() const {
+    return ninstance;
   }
   
   virtual ItorType getFeatureItorBegin(IndexType instance_id) const = 0;
