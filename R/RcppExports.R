@@ -6,3 +6,8 @@ update_FTPRLLogisticRegression.matrix <- function(Rm, y, Rlearner) {
     invisible(.Call('FTPRL_update_FTPRLLogisticRegression_matrix', PACKAGE = 'FTPRL', Rm, y, Rlearner))
 }
 
+#'@export
+predict_FTPRLLogisticRegression.matrix <- function(Rm, Rlearner) {
+    .Call('FTPRL_predict_FTPRLLogisticRegression_matrix', PACKAGE = 'FTPRL', Rm, Rlearner)
+}
+

@@ -19,3 +19,19 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// predict_FTPRLLogisticRegression_matrix
+SEXP predict_FTPRLLogisticRegression_matrix(NumericMatrix Rm, S4 Rlearner);
+RcppExport SEXP FTPRL_predict_FTPRLLogisticRegression_matrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericMatrix >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        SEXP __result = predict_FTPRLLogisticRegression_matrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
