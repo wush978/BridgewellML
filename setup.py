@@ -12,8 +12,9 @@ extensions = [
         extra_link_args = ['-fopenmp']),
 ]
 
-with open("CHANGELOG", "r") as f:
-    version = f.readline().rstrip()
+#with open("CHANGELOG", "r") as f:
+#    version = f.readline().rstrip()
+version = "0.1.1"
 
 setup(
     name = "FTPRL",

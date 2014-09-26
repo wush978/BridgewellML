@@ -1,17 +1,9 @@
 # distutils: language = c++
 
-cdef extern from "ScipySparseCSRMatrixProxy.hpp":
-    cdef cppclass ScipySparseCSRMatrixProxy[DataType, IndexType, ItorType]:
-        ScipySparseCSRMatrixProxy(IndexType, IndexType, IndexType*, IndexType*, DataType*)
-
-import cython
+cimport matrix
 
 import numpy as np
-cimport numpy as np
 from scipy.sparse import csr_matrix
-
-ctypedef np.int32_t cINT32
-ctypedef np.double_t cDOUBLE
 
 cdef class PyScipySparseCSRMatrixProxy:
     cdef ScipySparseCSRMatrixProxy[cDOUBLE, cINT32, long] *thisptr
