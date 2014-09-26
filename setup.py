@@ -20,6 +20,7 @@ setup(
     version = version,
     ext_modules = cythonize(extensions),
     install_requires = [
+      "cython",
       "numpy",
       "scipy"
     ],
