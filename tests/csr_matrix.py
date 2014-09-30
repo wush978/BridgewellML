@@ -6,4 +6,5 @@ data = array([0.1,0.2,3,4,5,6])
 a = csr_matrix( (data,indices,indptr), shape=(3,3) )
 print a
 import matrix
-print matrix.PyScipySparseCSRMatrixProxy(a)
+_a = matrix.PyScipySparseCSRMatrixProxy(a)
+print _a.getNFeature() 

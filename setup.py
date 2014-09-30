@@ -4,7 +4,7 @@ from Cython.Build import cythonize
 import numpy
 
 extensions = [
-    Extension("*", ["*.pyx"],
+    Extension("*", ["src/*.pyx"],
         include_dirs = [numpy.get_include(), "include", "src"],
         libraries = [],
         library_dirs = [],
