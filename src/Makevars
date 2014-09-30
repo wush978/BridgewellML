@@ -1,1 +1,2 @@
-PKG_CXXFLAGS = -std=c++11 -I../include
+PKG_CXXFLAGS = -std=c++11 -I../include -fopenmp
+PKG_LIBS = -fopenmp
