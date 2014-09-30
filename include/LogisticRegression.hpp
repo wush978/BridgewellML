@@ -36,7 +36,7 @@ public:
   void update(Matrix<IndexType, ItorType>* m, LabelType* y) {
     for(IndexType instance_id = 0;instance_id < m->getNInstance();instance_id++) {
       double pred = 0, g0 = 0;
-      #pragma omp parallel for
+      #pragma omp parallel for reduction(+:pred)
       for(ItorType iter = m->getFeatureItorBegin(instance_id);iter != m->getFeatureItorEnd(instance_id); iter++) {
         IndexType feature_id = m->getFeatureId(iter);
         double value = m->getValue(iter);
