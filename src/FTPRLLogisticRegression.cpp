@@ -12,7 +12,7 @@ void update_FTPRLLogisticRegression(InputType Rm, LogicalVector y, S4 Rlearner) 
   MatrixProxy m(Rm);
   std::shared_ptr<FTPRLProxy> plearner(new FTPRLProxy(Rlearner));
   double *z = REAL(Rlearner.slot("z")), *n = REAL(Rlearner.slot("n"));
-  FTPRL::LogisticRegression<IndexType> lr(plearner, m.getNFeature(), z, n);
+  FTPRL::LogisticRegression<IndexType> lr(plearner.get(), m.getNFeature(), z, n);
   lr.update(&m, &y[0]);
 }
 
@@ -38,7 +38,7 @@ SEXP predict_FTPRLLogisticRegression(InputType Rm, S4 Rlearner) {
   double *z = REAL(Rlearner.slot("z")), *n = REAL(Rlearner.slot("n"));
   NumericVector retval(m.getNInstance(), 0.0);
   double *pretval = REAL(wrap(retval));
-  FTPRL::LogisticRegression<IndexType> lr(learner, m.getNFeature(), z, n);
+  FTPRL::LogisticRegression<IndexType> lr(learner.get(), m.getNFeature(), z, n);
   lr.predict(&m, pretval);
   return retval;
 }
