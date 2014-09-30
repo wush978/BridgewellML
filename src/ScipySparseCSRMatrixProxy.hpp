@@ -3,7 +3,7 @@
 #include "Matrix.hpp"
 
 template<typename ValueType, typename IndexType, typename ItorType>
-class ScipySparseCSRMatrixProxy : FTPRL::Matrix<IndexType, ItorType> {
+class ScipySparseCSRMatrixProxy : public FTPRL::Matrix<IndexType, ItorType> {
 
   IndexType *i, *p;
   
