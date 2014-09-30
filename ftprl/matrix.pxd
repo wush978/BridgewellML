@@ -3,6 +3,7 @@ cdef extern from "Matrix.hpp" namespace "FTPRL:":
         Matrix()
         Matrix(IndexType, ItorType)
         IndexType getNFeature()
+        IndexType getNInstance()
 
 cdef extern from "ScipySparseCSRMatrixProxy.hpp":
     cdef cppclass ScipySparseCSRMatrixProxy[DataType, IndexType, ItorType](Matrix[IndexType, ItorType]):

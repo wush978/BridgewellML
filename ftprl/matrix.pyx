@@ -19,3 +19,5 @@ cdef class PyScipySparseCSRMatrixProxy:
         del self.thisptr
     def getNFeature(self):
         return self.thisptr.getNFeature()
+    def getNInstance(self):
+        return self.thisptr.getNInstance()
