@@ -15,7 +15,7 @@ cdef class PyLogisticRegression:
         self.thisptr = new LogisticRegression[matrix.cINT32](pyftprl.thisptr, nfeature)
     def __dealloc__(self):
         del self.thisptr
-    def update(self, matrix.PyScipySparseCSRMatrixProxy py_csr_matrix not None,  matrix.np.ndarray[matrix.cINT32, ndim = 1] py_y not None):
+    def update(self, matrix.PyScipySparseCSRMatrixProxy py_csr_matrix not None, matrix.np.ndarray[matrix.cINT32] py_y not None):
         self.thisptr.update[long, matrix.cINT32](py_csr_matrix.thisptr, &py_y[0])
     def predict(self, matrix.PyScipySparseCSRMatrixProxy py_csr_matrix not None, matrix.np.ndarray[matrix.cDOUBLE, ndim = 1] py_y not None):
         self.thisptr.predict[long](py_csr_matrix.thisptr, &py_y[0])
