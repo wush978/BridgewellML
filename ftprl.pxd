@@ -1,7 +1,3 @@
-cdef extern from "<memory>" namespace "std":
-    cdef cppclass shared_ptr[T]:
-        shared_ptr(T*)
-
 cdef extern from "FTPRL.hpp" namespace "FTPRL":
     cdef cppclass FTPRL:
         FTPRL(double, double, double, double)
@@ -9,3 +5,5 @@ cdef extern from "FTPRL.hpp" namespace "FTPRL":
         double get_w(double, double)
         void update_zn(double*, double*)
 
+cdef class PyFTPRL:
+    cdef FTPRL* thisptr

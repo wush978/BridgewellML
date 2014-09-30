@@ -6,7 +6,6 @@ import numpy as np
 from scipy.sparse import csr_matrix
 
 cdef class PyScipySparseCSRMatrixProxy:
-    cdef ScipySparseCSRMatrixProxy[cDOUBLE, cINT32, long] *thisptr
     def __cinit__(self, m):
         cdef cINT32 nfeature, ninstance
         ninstance = m.shape[0]
@@ -19,3 +18,5 @@ cdef class PyScipySparseCSRMatrixProxy:
         self.thisptr = new ScipySparseCSRMatrixProxy[cDOUBLE, cINT32, long](nfeature, ninstance, &indices[0], &indptr[0], &data[0])
     def __dealloc__(self):
         del self.thisptr
+    def getNFeature(self):
+        return self.thisptr.getNFeature()
