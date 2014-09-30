@@ -13,15 +13,15 @@ class LogisticRegression {
   
   double *z, *n;
   
-  std::shared_ptr<FTPRL> ftprl;
+  FTPRL* ftprl;
 
 public:
   
-  LogisticRegression(std::shared_ptr<FTPRL> _ftprl, IndexType nfeature) 
+  LogisticRegression(FTPRL* _ftprl, IndexType nfeature) 
   : ftprl(_ftprl), z(new double[nfeature]), n(new double[nfeature]), is_manage_memory(true)
   { }
   
-  LogisticRegression(std::shared_ptr<FTPRL> _ftprl, IndexType nfeature, double *_z, double *_n) 
+  LogisticRegression(FTPRL* _ftprl, IndexType nfeature, double *_z, double *_n) 
   : ftprl(_ftprl), z(_z), n(_n), is_manage_memory(false) 
   { } 
   
