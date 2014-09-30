@@ -4,8 +4,8 @@ from Cython.Build import cythonize
 import numpy
 
 extensions = [
-    Extension("*", ["src/*.pyx"],
-        include_dirs = [numpy.get_include(), "include", "src"],
+    Extension("*", ["ftprl/*.pyx"],
+        include_dirs = [numpy.get_include(), "include", "ftprl"],
         libraries = [],
         library_dirs = [],
         extra_compile_args = ['-fopenmp', '-std=c++11'],
