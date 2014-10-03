@@ -1,0 +1,15 @@
+Package: FTPRL
+Version: 0.1
+Date: 2014-09-23
+Title: Follow The Proximal Regularized Leader
+Author: Wush Wu
+Copyright: Bridgewell Inc.
+Maintainer: Wush Wu <wush@bridgewell.com>
+Depends: R (>= 3.1.0), methods
+Imports: Rcpp (>= 0.11)
+Suggests: Matrix
+LinkingTo: Rcpp
+Description: Implementation of Machine Learning Algorithms with FTPRL Optimizer
+License: GPL (>= 2)
+URL: 
+BugReports: 

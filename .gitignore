@@ -3,4 +3,3 @@
 .RData
 src/*.o
 src/*.so
-DESCRIPTION
