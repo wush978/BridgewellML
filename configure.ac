@@ -1,7 +1,7 @@
 AC_INIT([FTPRL])
 
 VERSION=`head -n 1 CHANGELOG`
-echo This is FTPRL version $VERSION
+echo This is BridgewellML version $VERSION
 
 AC_SUBST(VERSION)
 AC_CONFIG_FILES(DESCRIPTION)

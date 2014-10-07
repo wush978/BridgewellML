@@ -1663,7 +1663,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 VERSION=`head -n 1 CHANGELOG`
-echo This is FTPRL version $VERSION
+echo This is BridgewellML version $VERSION
 
 
 ac_config_files="$ac_config_files DESCRIPTION"
@@ -2822,3 +2822,4 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
   { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
 $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
+
