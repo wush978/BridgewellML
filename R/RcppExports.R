@@ -21,3 +21,13 @@ predict_FTPRLLogisticRegression.dgCMatrix <- function(Rm, Rlearner) {
     .Call('BridgewellML_predict_FTPRLLogisticRegression_dgCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 
+#'@export
+update_FTPRLNeuronNetwork.matrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLNeuronNetwork_matrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
+#'@export
+update_FTPRLNeuronNetwork.dgCMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLNeuronNetwork_dgCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
