@@ -31,3 +31,13 @@ update_FTPRLNeuronNetwork.dgCMatrix <- function(Rm, y, Rlearner) {
     invisible(.Call('BridgewellML_update_FTPRLNeuronNetwork_dgCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
 
+#'@export
+predict_FTPRLNeuronNetwork.matrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLNeuronNetwork_matrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
+#'@export
+predict_FTPRLNeuronNetwork.dgCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLNeuronNetwork_dgCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
