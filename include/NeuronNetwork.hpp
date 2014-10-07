@@ -19,6 +19,8 @@ class NeuronNetwork {
 
   double **z, **n;
 
+public:
+
   NeuronNetwork(FTPRL* _ftprl, IndexType _nlayer, IndexType* _nnode)
   : ftprl(_ftprl), nlayer(_nlayer), nnode(_nnode), is_manage_memory(true)
   {
