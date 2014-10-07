@@ -34,6 +34,12 @@ class NeuronNetwork {
       ::memset(z[i], 0, sizeof(double) * current_nodes * next_nodes);
     }
   }
+  
+  NeuronNetwork(FTPRL* _ftprl, IndexType _nlayer, IndexType* _nnode, double **_z, double **_n)
+  : ftprl(_ftprl), nlayer(_nlayer), nnode(_nnode), z(_z), n(_n) is_manage_memory(false)
+  {
+    if (nlayer < 3) throw std::logic_error("Less than 3 layers");
+  }
 
   virtual ~NeuronNetwork() {
     if (is_manage_memory) {
