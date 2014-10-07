@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // update_FTPRLLogisticRegression_matrix
 void update_FTPRLLogisticRegression_matrix(NumericMatrix Rm, LogicalVector y, S4 Rlearner);
-RcppExport SEXP FTPRL_update_FTPRLLogisticRegression_matrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+RcppExport SEXP BridgewellML_update_FTPRLLogisticRegression_matrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     {
         Rcpp::RNGScope __rngScope;
@@ -21,7 +21,7 @@ END_RCPP
 }
 // update_FTPRLLogisticRegression_dgCMatrix
 void update_FTPRLLogisticRegression_dgCMatrix(S4 Rm, LogicalVector y, S4 Rlearner);
-RcppExport SEXP FTPRL_update_FTPRLLogisticRegression_dgCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+RcppExport SEXP BridgewellML_update_FTPRLLogisticRegression_dgCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     {
         Rcpp::RNGScope __rngScope;
@@ -35,7 +35,7 @@ END_RCPP
 }
 // predict_FTPRLLogisticRegression_matrix
 SEXP predict_FTPRLLogisticRegression_matrix(NumericMatrix Rm, S4 Rlearner);
-RcppExport SEXP FTPRL_predict_FTPRLLogisticRegression_matrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+RcppExport SEXP BridgewellML_predict_FTPRLLogisticRegression_matrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -51,7 +51,7 @@ END_RCPP
 }
 // predict_FTPRLLogisticRegression_dgCMatrix
 SEXP predict_FTPRLLogisticRegression_dgCMatrix(S4 Rm, S4 Rlearner);
-RcppExport SEXP FTPRL_predict_FTPRLLogisticRegression_dgCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+RcppExport SEXP BridgewellML_predict_FTPRLLogisticRegression_dgCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {

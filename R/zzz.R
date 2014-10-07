@@ -1,4 +1,4 @@
-#'@useDynLib FTPRL
+#'@useDynLib BridgewellML
 #'@importFrom Rcpp evalCpp
 .onLoad <- function(libname, pkgname) {
 }

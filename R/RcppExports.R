@@ -3,21 +3,21 @@
 
 #'@export
 update_FTPRLLogisticRegression.matrix <- function(Rm, y, Rlearner) {
-    invisible(.Call('FTPRL_update_FTPRLLogisticRegression_matrix', PACKAGE = 'FTPRL', Rm, y, Rlearner))
+    invisible(.Call('BridgewellML_update_FTPRLLogisticRegression_matrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
 
 #'@export
 update_FTPRLLogisticRegression.dgCMatrix <- function(Rm, y, Rlearner) {
-    invisible(.Call('FTPRL_update_FTPRLLogisticRegression_dgCMatrix', PACKAGE = 'FTPRL', Rm, y, Rlearner))
+    invisible(.Call('BridgewellML_update_FTPRLLogisticRegression_dgCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
 
 #'@export
 predict_FTPRLLogisticRegression.matrix <- function(Rm, Rlearner) {
-    .Call('FTPRL_predict_FTPRLLogisticRegression_matrix', PACKAGE = 'FTPRL', Rm, Rlearner)
+    .Call('BridgewellML_predict_FTPRLLogisticRegression_matrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 
 #'@export
 predict_FTPRLLogisticRegression.dgCMatrix <- function(Rm, Rlearner) {
-    .Call('FTPRL_predict_FTPRLLogisticRegression_dgCMatrix', PACKAGE = 'FTPRL', Rm, Rlearner)
+    .Call('BridgewellML_predict_FTPRLLogisticRegression_dgCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 

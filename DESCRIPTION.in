@@ -1,7 +1,7 @@
-Package: FTPRL
+Package: BridgewellML
 Version: @VERSION@
 Date: 2014-09-23
-Title: Follow The Proximal Regularized Leader
+Title: Machine Learning Library developed for Bridgewell Inc.
 Author: Wush Wu
 Copyright: Bridgewell Inc.
 Maintainer: Wush Wu <wush@bridgewell.com>
@@ -9,7 +9,7 @@ Depends: R (>= 3.1.0), methods
 Imports: Rcpp (>= 0.11)
 Suggests: Matrix
 LinkingTo: Rcpp
-Description: Implementation of Machine Learning Algorithms with FTPRL Optimizer
+Description: Implementation of Large Scale Machine Learning Algorithms for Online Advertising.
 License: GPL (>= 2)
 URL: 
 BugReports: 
