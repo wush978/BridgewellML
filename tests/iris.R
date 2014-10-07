@@ -1,4 +1,4 @@
-library(FTPRL)
+library(BridgewellML)
 m <- model.matrix(Species ~ ., iris)
 y <- iris$Species == "setosa"
 learner <- init_FTPRLLogisticRegression(0.1, 1, 0.1, 0.1, ncol(m))
