@@ -2,6 +2,7 @@
 
 #include <cstring>
 #include <memory>
+#include <stdexcept>
 #include "Matrix.hpp"
 #include "FTPRL.hpp"
 
