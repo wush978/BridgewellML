@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstring>
 #include <memory>
 #include "Matrix.hpp"
 #include "FTPRL.hpp"
