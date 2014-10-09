@@ -9,7 +9,19 @@ for(i in 1:10) {
 }
 stopifnot(all(diff(r) < 0))
 
-learner <- init_FTPRLNeuronNetwork(0.1, 1, 0.1, 0.1, c(1L, 10L, ncol(m)))
+library(Matrix)
+m <- sparse.model.matrix(Species ~ ., iris, transpose = TRUE)
+learner <- init_FTPRLLogisticRegression(0.1, 1, 0.1, 0.1, nrow(m))
+r2 <- r
+r <- rep(0, 10)
+for(i in 1:10) {
+  update(learner, m, y)
+  r[i] <- mean(logloss(predict(learner, m), y))
+}
+stopifnot(all(diff(r) < 0))
+all.equal(r, r2)
+
+learner <- init_FTPRLNeuronNetwork(0.1, 1, 0.1, 0.1, c(1L, 10L, nrow(m)))
 r <- rep(0, 10)
 for(i in 1:10) {
   update(learner, m, y)
