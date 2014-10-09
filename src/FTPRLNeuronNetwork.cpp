@@ -7,24 +7,29 @@
 
 using namespace Rcpp;
 
-template<typename IndexType>
-static FTPRL::NeuronNetwork<IndexType> init_learner(FTPRLProxy* p, S4 Rlearner) {
+const std::vector<double*> getzn(S4 Rlearner, const std::string& name) {
   IntegerVector nnode(Rlearner.slot("nnode"));
-  List zlist(Rlearner.slot("z")), nlist(Rlearner.slot("n"));
-  std::vector<double*> z(nnode.size() - 1, NULL), n(nnode.size() - 1, NULL);
+  List list(Rlearner.slot(name));
+  std::vector<double*> retval(nnode.size() - 1, NULL);
   for(int i = 0;i + 1 < nnode.size();i++) {
-    z[i] = REAL(zlist[i]);
-    n[i] = REAL(nlist[i]);
+    retval[i] = REAL(list[i]);
   }
-  IndexType *pnnode = &nnode[0];
-  return FTPRL::NeuronNetwork<IndexType>(p, nnode.size(), pnnode, &z[0], &n[0]);
+  return retval;
+}
+
+template<typename IndexType>
+static FTPRL::NeuronNetwork<IndexType> init_learner(FTPRLProxy* p, int nlayer, int* nnode, std::vector<double*>& z, std::vector<double*>& n) {
+  return FTPRL::NeuronNetwork<IndexType>(p, nlayer, nnode, &z[0], &n[0]);
 }
 
 template<typename InputType, typename MatrixProxy, typename IndexType>
 void update_FTPRLNeuronNetwork(InputType Rm, LogicalVector y, S4 Rlearner) {
   MatrixProxy m(Rm);
   std::shared_ptr<FTPRLProxy> plearner(new FTPRLProxy(Rlearner));
-  auto lr(init_learner<IndexType>(plearner.get(), Rlearner));
+  std::vector<double*> z(getzn(Rlearner, "z")), n(getzn(Rlearner, "n"));
+  IntegerVector nnode(Rlearner.slot("nnode"));
+  int *pnode = &nnode[0];
+  auto lr(init_learner<IndexType>(plearner.get(), nnode.size(), pnode, z, n));
   lr.update(&m, &y[0]);
 }
 
@@ -47,7 +52,10 @@ template<typename InputType, typename MatrixProxy, typename IndexType>
 SEXP predict_FTPRLNeuronNetwork(InputType Rm, S4 Rlearner) {
   MatrixProxy m(Rm);
   std::shared_ptr<FTPRLProxy> plearner(new FTPRLProxy(Rlearner));
-  auto lr(init_learner<IndexType>(plearner.get(), Rlearner));
+  std::vector<double*> z(getzn(Rlearner, "z")), n(getzn(Rlearner, "n"));
+  IntegerVector nnode(Rlearner.slot("nnode"));
+  int *pnode = &nnode[0];
+  auto lr(init_learner<IndexType>(plearner.get(), nnode.size(), pnode, z, n));
   NumericVector retval(m.getNInstance(), 0.0);
   double *pretval = REAL(wrap(retval));
   lr.predict(&m, pretval);
