@@ -14,7 +14,7 @@ class NeuronNetwork {
   FTPRL* ftprl;
 
   bool is_manage_memory;
- 
+
   IndexType nlayer;
 
   IndexType* nnode;
@@ -38,7 +38,7 @@ public:
       ::memset(n[i], 0, sizeof(double) * current_nodes * next_nodes);
     }
   }
-  
+
   NeuronNetwork(FTPRL* _ftprl, IndexType _nlayer, IndexType* _nnode, double **_z, double **_n)
   : ftprl(_ftprl), nlayer(_nlayer), nnode(_nnode), z(_z), n(_n), is_manage_memory(false)
   {
@@ -55,7 +55,7 @@ public:
       delete [] n;
     }
   }
-  
+
   template<typename ItorType, typename LabelType>
   void update(Matrix<IndexType, ItorType>* m, LabelType* y) {
     if (m->getNFeature() != nnode[nlayer - 1]) throw std::invalid_argument("Inconsistent nfeature");
@@ -121,7 +121,7 @@ public:
           }
         }
         for(IndexType l = 0; l + 1 < nlayer;l++) {
-          IndexType ln = nnode[l];
+          IndexType ln = nnode[l + 1];
           #pragma omp for
           for(IndexType ll = 0;ll < nnode[l];ll++) {
             if (l + 2 == nlayer) {
