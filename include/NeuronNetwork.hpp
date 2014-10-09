@@ -1,6 +1,8 @@
 #pragma once
 
+#include <cstring>
 #include <memory>
+#include <stdexcept>
 #include "Matrix.hpp"
 #include "FTPRL.hpp"
 
@@ -12,7 +14,7 @@ class NeuronNetwork {
   FTPRL* ftprl;
 
   bool is_manage_memory;
- 
+
   IndexType nlayer;
 
   IndexType* nnode;
@@ -33,10 +35,10 @@ public:
       z[i] = new double[current_nodes * next_nodes];
       ::memset(z[i], 0, sizeof(double) * current_nodes * next_nodes);
       n[i] = new double[current_nodes * next_nodes];
-      ::memset(z[i], 0, sizeof(double) * current_nodes * next_nodes);
+      ::memset(n[i], 0, sizeof(double) * current_nodes * next_nodes);
     }
   }
-  
+
   NeuronNetwork(FTPRL* _ftprl, IndexType _nlayer, IndexType* _nnode, double **_z, double **_n)
   : ftprl(_ftprl), nlayer(_nlayer), nnode(_nnode), z(_z), n(_n), is_manage_memory(false)
   {
@@ -53,7 +55,7 @@ public:
       delete [] n;
     }
   }
-  
+
   template<typename ItorType, typename LabelType>
   void update(Matrix<IndexType, ItorType>* m, LabelType* y) {
     if (m->getNFeature() != nnode[nlayer - 1]) throw std::invalid_argument("Inconsistent nfeature");
@@ -114,25 +116,25 @@ public:
             g0[l][ll] = 0;
             for(IndexType llp = 0;llp < nnode[l - 1];llp++) {
               double w = ftprl->get_w(z[l - 1][llp * ln + ll], n[l - 1][llp * ln + ll]);
-              g0[l][ll] += node_value[l - 1][llp] * (1 - node_value[l - 1][llp]) * w * g0[l - 1][llp];
+              g0[l][ll] += g0[l-1][llp] * (1 - node_value[l - 1][llp]) * w;
             }
           }
         }
         for(IndexType l = 0; l + 1 < nlayer;l++) {
-          IndexType ln = nnode[l];
+          IndexType ln = nnode[l + 1];
           #pragma omp for
           for(IndexType ll = 0;ll < nnode[l];ll++) {
             if (l + 2 == nlayer) {
               for(ItorType iter = m->getFeatureItorBegin(instance_id);iter < m->getFeatureItorEnd(instance_id);iter++) {
                 IndexType feature_id = m->getFeatureId(iter);
                 double value = m->getValue(iter);
-                double g = g0[l][ll] * node_value[l][ll] * (1 - node_value[l][ll]) * value;
+                double g = g0[l][ll] * (1 - node_value[l][ll]) * value;
                 ftprl->update_zn(g, z[l] + ll * ln + feature_id, n[l] + ll * ln + feature_id);
               }
             } else {
               for(IndexType feature_id = 0;feature_id < nnode[l + 1];feature_id++) {
                 double value = node_value[l + 1][feature_id];
-                double g = g0[l][ll] * node_value[l][ll] * (1 - node_value[l][ll]) * value;
+                double g = g0[l][ll] * (1 - node_value[l][ll]) * value;
                 ftprl->update_zn(g, z[l] + ll * ln + feature_id, n[l] + ll * ln + feature_id);
               }
             } // l + 2 < nlayer
