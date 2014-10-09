@@ -35,7 +35,7 @@ public:
       z[i] = new double[current_nodes * next_nodes];
       ::memset(z[i], 0, sizeof(double) * current_nodes * next_nodes);
       n[i] = new double[current_nodes * next_nodes];
-      ::memset(z[i], 0, sizeof(double) * current_nodes * next_nodes);
+      ::memset(n[i], 0, sizeof(double) * current_nodes * next_nodes);
     }
   }
   
