@@ -1,4 +1,4 @@
-AC_INIT([FTPRL])
+AC_INIT([BridgewellML])
 
 VERSION=`head -n 1 CHANGELOG`
 echo This is BridgewellML version $VERSION

@@ -581,7 +581,7 @@ PACKAGE_STRING=
 PACKAGE_BUGREPORT=
 PACKAGE_URL=
 
-ac_unique_file="FTPRL"
+ac_unique_file="BridgewellML"
 ac_subst_vars='LTLIBOBJS
 LIBOBJS
 VERSION
