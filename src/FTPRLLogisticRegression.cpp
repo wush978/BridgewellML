@@ -31,6 +31,14 @@ void update_FTPRLLogisticRegression_dgCMatrix(S4 Rm, LogicalVector y, S4 Rlearne
   update_FTPRLLogisticRegression<S4, dgCMatrixProxy, int, int>(Rm, y, Rlearner);
 }
 
+//'@export
+// [[Rcpp::export("update_FTPRLLogisticRegression.CSRMatrix")]]
+void update_FTPRLLogisticRegression_CSRMatrix(S4 Rm, LogicalVector y, S4 Rlearner) {
+  IntegerVector dim(Rm.slot("Dim"));
+  if (dim[1] != y.size()) throw std::invalid_argument("");
+  update_FTPRLLogisticRegression<S4, dgCMatrixProxy, int, int>(Rm, y, Rlearner);
+}
+
 template<typename InputType, typename MatrixProxy, typename IndexType, typename ItorType>
 SEXP predict_FTPRLLogisticRegression(InputType Rm, S4 Rlearner) {
   MatrixProxy m(Rm);
@@ -52,5 +60,11 @@ SEXP predict_FTPRLLogisticRegression_matrix(NumericMatrix Rm, S4 Rlearner) {
 //'@export
 // [[Rcpp::export("predict_FTPRLLogisticRegression.dgCMatrix")]]
 SEXP predict_FTPRLLogisticRegression_dgCMatrix(S4 Rm, S4 Rlearner) {
+  return predict_FTPRLLogisticRegression<S4, dgCMatrixProxy, int, int>(Rm, Rlearner);
+}
+
+//'@export
+// [[Rcpp::export("predict_FTPRLLogisticRegression.CSRMatrix")]]
+SEXP predict_FTPRLLogisticRegression_CSRMatrix(S4 Rm, S4 Rlearner) {
   return predict_FTPRLLogisticRegression<S4, dgCMatrixProxy, int, int>(Rm, Rlearner);
 }

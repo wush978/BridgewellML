@@ -48,6 +48,14 @@ void update_FTPRLNeuronNetwork_dgCMatrix(S4 Rm, LogicalVector y, S4 Rlearner) {
   update_FTPRLNeuronNetwork<S4, dgCMatrixProxy, int>(Rm, y, Rlearner);
 }
 
+//'@export
+// [[Rcpp::export("update_FTPRLNeuronNetwork.CSRMatrix")]]
+void update_FTPRLNeuronNetwork_CSRMatrix(S4 Rm, LogicalVector y, S4 Rlearner) {
+  IntegerVector dim(Rm.slot("Dim"));
+  if (dim[1] != y.size()) throw std::invalid_argument("");
+  update_FTPRLNeuronNetwork<S4, dgCMatrixProxy, int>(Rm, y, Rlearner);
+}
+
 template<typename InputType, typename MatrixProxy, typename IndexType>
 SEXP predict_FTPRLNeuronNetwork(InputType Rm, S4 Rlearner) {
   MatrixProxy m(Rm);
@@ -72,5 +80,11 @@ SEXP predict_FTPRLNeuronNetwork_matrix(NumericMatrix Rm, S4 Rlearner) {
 //'@export
 // [[Rcpp::export("predict_FTPRLNeuronNetwork.dgCMatrix")]]
 SEXP predict_FTPRLNeuronNetwork_dgCMatrix(S4 Rm, S4 Rlearner) {
+  return predict_FTPRLNeuronNetwork<S4, dgCMatrixProxy, int>(Rm, Rlearner);
+}
+
+//'@export
+// [[Rcpp::export("predict_FTPRLNeuronNetwork.CSRMatrix")]]
+SEXP predict_FTPRLNeuronNetwork_CSRMatrix(S4 Rm, S4 Rlearner) {
   return predict_FTPRLNeuronNetwork<S4, dgCMatrixProxy, int>(Rm, Rlearner);
 }
