@@ -66,12 +66,7 @@ public:
         double w = ftprl->get_w(z[feature_id], n[feature_id]);
         pred += value * w;
       }
-      pred = sigma(pred);
     }
-  }
-
-  inline static double sigma(double x) {
-    return 1 / (1 + std::exp(-x));
   }
   
 };
