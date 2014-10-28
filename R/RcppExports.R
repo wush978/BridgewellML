@@ -2,6 +2,36 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #'@export
+update_FTPRLLinearRegression.matrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLinearRegression_matrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
+#'@export
+update_FTPRLLinearRegression.dgCMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLinearRegression_dgCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
+#'@export
+update_FTPRLLinearRegression.CSRMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLinearRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
+#'@export
+predict_FTPRLLinearRegression.matrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLinearRegression_matrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
+#'@export
+predict_FTPRLLinearRegression.dgCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLinearRegression_dgCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
+#'@export
+predict_FTPRLLinearRegression.CSRMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLinearRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
+#'@export
 update_FTPRLLogisticRegression.matrix <- function(Rm, y, Rlearner) {
     invisible(.Call('BridgewellML_update_FTPRLLogisticRegression_matrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
