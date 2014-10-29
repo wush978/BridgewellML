@@ -7,13 +7,17 @@
 
 using namespace Rcpp;
 
+bool is_naaa(double x) {
+  return R_IsNA(x);
+}
+
 template<typename InputType, typename MatrixProxy, typename IndexType>
 void update_FTPRLLinearRegression(InputType Rm, NumericVector y, S4 Rlearner) {
   MatrixProxy m(Rm);
   std::shared_ptr<FTPRLProxy> plearner(new FTPRLProxy(Rlearner));
   double *z = REAL(Rlearner.slot("z")), *n = REAL(Rlearner.slot("n"));
   FTPRL::LinearRegression<IndexType> lr(plearner.get(), m.getNFeature(), z, n);
-  lr.update(&m, &y[0]);
+  lr.update(&m, &y[0], *is_naaa);
 }
 
 //'@export
