@@ -78,9 +78,9 @@ public:
   }
   
   template<typename ItorType, typename ValueType>
-  void update(Matrix<IndexType, ItorType>* m, ValueType* y, bool *is_skip(ValueType) ) {
+  void update(Matrix<IndexType, ItorType>* m, ValueType* y, bool is_skip(ValueType) ) {
     for(IndexType instance_id = 0;instance_id < m->getNInstance();instance_id++) {
-      if (*is_skip(y[instance_id])) continue;
+      if (is_skip(y[instance_id])) continue;
       double pred = 0, g0 = 0;
       #pragma omp parallel for reduction(+:pred)
       for(ItorType iter = m->getFeatureItorBegin(instance_id);iter < m->getFeatureItorEnd(instance_id); iter++) {
