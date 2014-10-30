@@ -1,4 +1,5 @@
 #include <memory>
+#include <Rmath.h>
 #include <Rcpp.h>
 #include "NumericMatrixProxy.hpp"
 #include "dgCMatrixProxy.hpp"
@@ -7,16 +8,12 @@
 
 using namespace Rcpp;
 
-extern "C" {
-  
-  double dnorm(double x) {
-    return dnorm(x, 0, 1, 0);
-  }
-  
-  double pnorm(double x) {
-    return pnorm(x, 0, 1, 0);
-  }
-  
+double dnorm(double x) {
+  return ::Rf_dnorm4(x, 0, 1, 0);
+}
+
+double pnorm(double x) {
+  return ::Rf_pnorm5(x, 0, 1, 1, 0);
 }
 
 bool is_na(double value, int is_observed) {
@@ -25,20 +22,20 @@ bool is_na(double value, int is_observed) {
   return false;
 }
 
-template<typename InputType, typename MatrixProxy, typename IndexType, typename gggg>
+template<typename InputType, typename MatrixProxy, typename IndexType>
 void update_FTPRLCensoredRegression(InputType Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner) {
   MatrixProxy m(Rm);
   std::shared_ptr<FTPRLProxy> plearner(new FTPRLProxy(Rlearner));
   double *z = REAL(Rlearner.slot("z")), *n = REAL(Rlearner.slot("n"));
   FTPRL::CensoredRegression<IndexType> lr(plearner.get(), m.getNFeature(), z, n);
-  lr.update(&m, &y[0], &is_observed, is_na);
+  lr.update(&m, &y[0], &is_observed[0], is_na);
 }
 
 //'@export
 // [[Rcpp::export("update_FTPRLCensoredRegression.matrix")]]
 void update_FTPRLCensoredRegression_matrix(NumericMatrix Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner) {
   if (Rm.nrow() != y.size()) throw std::invalid_argument("");
-  update_FTPRLCensoredRegression<NumericMatrix, NumericMatrixProxy, int, size_t>(Rm, y, Rlearner);
+  update_FTPRLCensoredRegression<NumericMatrix, NumericMatrixProxy, int>(Rm, y, is_observed, Rlearner);
 }
 
 //'@export
@@ -46,7 +43,7 @@ void update_FTPRLCensoredRegression_matrix(NumericMatrix Rm, NumericVector y, Lo
 void update_FTPRLCensoredRegression_dgCMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner) {
   IntegerVector dim(Rm.slot("Dim"));
   if (dim[1] != y.size()) throw std::invalid_argument("");
-  update_FTPRLCensoredRegression<S4, dgCMatrixProxy, int, int>(Rm, y, Rlearner);
+  update_FTPRLCensoredRegression<S4, dgCMatrixProxy, int>(Rm, y, is_observed, Rlearner);
 }
 
 //'@export
@@ -54,10 +51,10 @@ void update_FTPRLCensoredRegression_dgCMatrix(S4 Rm, NumericVector y, LogicalVec
 void update_FTPRLCensoredRegression_CSRMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner) {
   IntegerVector dim(Rm.slot("Dim"));
   if (dim[1] != y.size()) throw std::invalid_argument("");
-  update_FTPRLCensoredRegression<S4, dgCMatrixProxy, int, int>(Rm, y, Rlearner);
+  update_FTPRLCensoredRegression<S4, dgCMatrixProxy, int>(Rm, y, is_observed, Rlearner);
 }
 
-template<typename InputType, typename MatrixProxy, typename IndexType, typename ItorType>
+template<typename InputType, typename MatrixProxy, typename IndexType>
 SEXP predict_FTPRLCensoredRegression(InputType Rm, S4 Rlearner) {
   MatrixProxy m(Rm);
   std::shared_ptr<FTPRLProxy> learner(new FTPRLProxy(Rlearner));
@@ -72,17 +69,17 @@ SEXP predict_FTPRLCensoredRegression(InputType Rm, S4 Rlearner) {
 //'@export
 // [[Rcpp::export("predict_FTPRLCensoredRegression.matrix")]]
 SEXP predict_FTPRLCensoredRegression_matrix(NumericMatrix Rm, S4 Rlearner) {
-  return predict_FTPRLCensoredRegression<NumericMatrix, NumericMatrixProxy, int, size_t>(Rm, Rlearner);
+  return predict_FTPRLCensoredRegression<NumericMatrix, NumericMatrixProxy, int>(Rm, Rlearner);
 }
 
 //'@export
 // [[Rcpp::export("predict_FTPRLCensoredRegression.dgCMatrix")]]
 SEXP predict_FTPRLCensoredRegression_dgCMatrix(S4 Rm, S4 Rlearner) {
-  return predict_FTPRLCensoredRegression<S4, dgCMatrixProxy, int, int>(Rm, Rlearner);
+  return predict_FTPRLCensoredRegression<S4, dgCMatrixProxy, int>(Rm, Rlearner);
 }
 
 //'@export
 // [[Rcpp::export("predict_FTPRLCensoredRegression.CSRMatrix")]]
 SEXP predict_FTPRLCensoredRegression_CSRMatrix(S4 Rm, S4 Rlearner) {
-  return predict_FTPRLCensoredRegression<S4, dgCMatrixProxy, int, int>(Rm, Rlearner);
+  return predict_FTPRLCensoredRegression<S4, dgCMatrixProxy, int>(Rm, Rlearner);
 }
