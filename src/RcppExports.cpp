@@ -278,3 +278,18 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// get_w
+SEXP get_w(S4 RLearner);
+RcppExport SEXP BridgewellML_get_w(SEXP RLearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type RLearner(RLearnerSEXP );
+        SEXP __result = get_w(RLearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}

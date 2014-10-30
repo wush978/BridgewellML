@@ -91,3 +91,7 @@ predict_FTPRLNeuronNetwork.CSRMatrix <- function(Rm, Rlearner) {
     .Call('BridgewellML_predict_FTPRLNeuronNetwork_CSRMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 
+.get_w <- function(RLearner) {
+    .Call('BridgewellML_get_w', PACKAGE = 'BridgewellML', RLearner)
+}
+
