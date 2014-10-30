@@ -4,15 +4,11 @@
 #include "Matrix.hpp"
 #include "FTPRL.hpp"
 
-extern "C" {
+// standard normal pdf
+double dnorm(double);
 
-  // standard normal pdf
-  double dnorm(double);
-  
-  // standard normal cdf
-  double pnorm(double);
-
-}
+// standard normal cdf
+double pnorm(double);
 
 namespace FTPRL {
 
