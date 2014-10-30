@@ -42,10 +42,11 @@ public:
     }
   }
   
+  
   template<typename ItorType, typename ValueType, typename LabelType>
   void update(Matrix<IndexType, ItorType>* m, ValueType* y, LabelType* is_observed, bool is_skip(ValueType, LabelType)) {
     // The last parameter is log(sigma)
-    const Matrix<IndexType, ItorType>::IndexType nfeature = m->getNFeature();
+    IndexType nfeature = m->getNFeature();
     for(IndexType instance_id = 0;instance_id < m->getNInstance();instance_id++) {
       if (is_skip(y[instance_id], is_observed[instance_id])) continue;
       double pred = 0, g0 = 0, sigma = exp(ftprl->get_w(z[nfeature], n[nfeature]));
@@ -56,7 +57,7 @@ public:
         double w = ftprl->get_w(z[feature_id], n[feature_id]);
         pred += value * w;
       }
-      double zscore = (pred - y) / sigma;
+      double zscore = (pred - y[instance_id]) / sigma;
       double dzscore_dloss = (is_observed[instance_id] ? zscore : - dnorm(zscore) / pnorm(zscore));
       #pragma omp parallel for
       for(ItorType iter = m->getFeatureItorBegin(instance_id);iter < m->getFeatureItorEnd(instance_id); iter++) {
