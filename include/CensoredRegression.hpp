@@ -5,10 +5,10 @@
 #include "FTPRL.hpp"
 
 // standard normal pdf
-double dnorm(double);
+double logdnorm(double);
 
 // standard normal cdf
-double pnorm(double);
+double logpnorm(double);
 
 namespace FTPRL {
 
@@ -54,7 +54,7 @@ public:
         pred += value * w;
       }
       double zscore = (pred - y[instance_id]) / sigma;
-      double dzscore_dloss = (is_observed[instance_id] ? zscore : - dnorm(zscore) / pnorm(zscore));
+      double dzscore_dloss = (is_observed[instance_id] ? zscore : - exp(logdnorm(zscore) - logpnorm(zscore)));
       #pragma omp parallel for
       for(ItorType iter = m->getFeatureItorBegin(instance_id);iter < m->getFeatureItorEnd(instance_id); iter++) {
         IndexType feature_id = m->getFeatureId(iter);
