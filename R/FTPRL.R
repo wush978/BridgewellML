@@ -16,3 +16,12 @@ FTPRL <- "FTPRL"
 #'@details TODO
 setClass(FTPRL, representation(alpha = "numeric", beta = "numeric", lambda1 = "numeric", lambda2 = "numeric"))
 
+setMethod("$",
+    signature(x = "FTPRL"),
+    function (x, name) 
+    {
+      if (name == "w") {
+        return (.get_w(x))
+      }
+    }
+)

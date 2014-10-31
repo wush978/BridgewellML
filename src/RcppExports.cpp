@@ -5,6 +5,99 @@
 
 using namespace Rcpp;
 
+// update_FTPRLCensoredRegression_matrix
+void update_FTPRLCensoredRegression_matrix(NumericMatrix Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLCensoredRegression_matrix(SEXP RmSEXP, SEXP ySEXP, SEXP is_observedSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericMatrix >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP );
+        Rcpp::traits::input_parameter< LogicalVector >::type is_observed(is_observedSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        update_FTPRLCensoredRegression_matrix(Rm, y, is_observed, Rlearner);
+    }
+    return R_NilValue;
+END_RCPP
+}
+// update_FTPRLCensoredRegression_dgCMatrix
+void update_FTPRLCensoredRegression_dgCMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLCensoredRegression_dgCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP is_observedSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP );
+        Rcpp::traits::input_parameter< LogicalVector >::type is_observed(is_observedSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        update_FTPRLCensoredRegression_dgCMatrix(Rm, y, is_observed, Rlearner);
+    }
+    return R_NilValue;
+END_RCPP
+}
+// update_FTPRLCensoredRegression_CSRMatrix
+void update_FTPRLCensoredRegression_CSRMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLCensoredRegression_CSRMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP is_observedSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP );
+        Rcpp::traits::input_parameter< LogicalVector >::type is_observed(is_observedSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        update_FTPRLCensoredRegression_CSRMatrix(Rm, y, is_observed, Rlearner);
+    }
+    return R_NilValue;
+END_RCPP
+}
+// predict_FTPRLCensoredRegression_matrix
+SEXP predict_FTPRLCensoredRegression_matrix(NumericMatrix Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLCensoredRegression_matrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericMatrix >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        SEXP __result = predict_FTPRLCensoredRegression_matrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// predict_FTPRLCensoredRegression_dgCMatrix
+SEXP predict_FTPRLCensoredRegression_dgCMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLCensoredRegression_dgCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        SEXP __result = predict_FTPRLCensoredRegression_dgCMatrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// predict_FTPRLCensoredRegression_CSRMatrix
+SEXP predict_FTPRLCensoredRegression_CSRMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLCensoredRegression_CSRMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        SEXP __result = predict_FTPRLCensoredRegression_CSRMatrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // update_FTPRLLinearRegression_matrix
 void update_FTPRLLinearRegression_matrix(NumericMatrix Rm, NumericVector y, S4 Rlearner);
 RcppExport SEXP BridgewellML_update_FTPRLLinearRegression_matrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
@@ -269,6 +362,21 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
         SEXP __result = predict_FTPRLNeuronNetwork_CSRMatrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// get_w
+SEXP get_w(S4 RLearner);
+RcppExport SEXP BridgewellML_get_w(SEXP RLearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type RLearner(RLearnerSEXP );
+        SEXP __result = get_w(RLearner);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
