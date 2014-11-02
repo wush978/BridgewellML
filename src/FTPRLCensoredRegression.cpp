@@ -8,12 +8,12 @@
 
 using namespace Rcpp;
 
-double dnorm(double x) {
-  return ::Rf_dnorm4(x, 0, 1, 0);
+double logdnorm(double x) {
+  return ::Rf_dnorm4(x, 0, 1, 1);
 }
 
-double pnorm(double x) {
-  return ::Rf_pnorm5(x, 0, 1, 1, 0);
+double logpnorm(double x) {
+  return ::Rf_pnorm5(x, 0, 1, 1, 1);
 }
 
 bool is_na(double value, int is_observed) {
