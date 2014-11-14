@@ -116,7 +116,7 @@ public:
             g0[l][ll] = 0;
             for(IndexType llp = 0;llp < nnode[l - 1];llp++) {
               double w = ftprl->get_w(z[l - 1][llp * ln + ll], n[l - 1][llp * ln + ll]);
-              g0[l][ll] += g0[l-1][llp] * (1 - node_value[l - 1][llp]) * w;
+              g0[l][ll] += g0[l-1][llp] * node_value[l - 1][llp] * (1 - node_value[l - 1][llp]) * w;
             }
           }
         }
