@@ -1,4 +1,5 @@
 include_directories("${CMAKE_SOURCE_DIR}/include")
 add_executable (logisticregression.exe logisticregression.cpp)
+add_executable (logisticregressionpoly2.exe logisticregressionpoly2.cpp)
 add_executable (neuronnetwork.exe neuronnetwork.cpp)
 add_executable (censoredregression.exe censoredregression.cpp)
