@@ -278,6 +278,96 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// update_FTPRLLogisticRegressionPoly2_matrix
+void update_FTPRLLogisticRegressionPoly2_matrix(NumericMatrix Rm, LogicalVector y, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLLogisticRegressionPoly2_matrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericMatrix >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< LogicalVector >::type y(ySEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        update_FTPRLLogisticRegressionPoly2_matrix(Rm, y, Rlearner);
+    }
+    return R_NilValue;
+END_RCPP
+}
+// update_FTPRLLogisticRegressionPoly2_dgCMatrix
+void update_FTPRLLogisticRegressionPoly2_dgCMatrix(S4 Rm, LogicalVector y, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLLogisticRegressionPoly2_dgCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< LogicalVector >::type y(ySEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        update_FTPRLLogisticRegressionPoly2_dgCMatrix(Rm, y, Rlearner);
+    }
+    return R_NilValue;
+END_RCPP
+}
+// update_FTPRLLogisticRegressionPoly2_CSCMatrix
+void update_FTPRLLogisticRegressionPoly2_CSCMatrix(S4 Rm, LogicalVector y, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLLogisticRegressionPoly2_CSCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< LogicalVector >::type y(ySEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        update_FTPRLLogisticRegressionPoly2_CSCMatrix(Rm, y, Rlearner);
+    }
+    return R_NilValue;
+END_RCPP
+}
+// predict_FTPRLLogisticRegressionPoly2_matrix
+SEXP predict_FTPRLLogisticRegressionPoly2_matrix(NumericMatrix Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLLogisticRegressionPoly2_matrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< NumericMatrix >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        SEXP __result = predict_FTPRLLogisticRegressionPoly2_matrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// predict_FTPRLLogisticRegressionPoly2_dgCMatrix
+SEXP predict_FTPRLLogisticRegressionPoly2_dgCMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLLogisticRegressionPoly2_dgCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        SEXP __result = predict_FTPRLLogisticRegressionPoly2_dgCMatrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// predict_FTPRLLogisticRegressionPoly2_CSCMatrix
+SEXP predict_FTPRLLogisticRegressionPoly2_CSCMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLLogisticRegressionPoly2_CSCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
+        Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
+        SEXP __result = predict_FTPRLLogisticRegressionPoly2_CSCMatrix(Rm, Rlearner);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // update_FTPRLNeuronNetwork_matrix
 void update_FTPRLNeuronNetwork_matrix(NumericMatrix Rm, LogicalVector y, S4 Rlearner);
 RcppExport SEXP BridgewellML_update_FTPRLNeuronNetwork_matrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {

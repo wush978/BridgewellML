@@ -92,6 +92,36 @@ predict_FTPRLLogisticRegression.CSCMatrix <- function(Rm, Rlearner) {
 }
 
 #'@export
+update_FTPRLLogisticRegressionPoly2.matrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLogisticRegressionPoly2_matrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
+#'@export
+update_FTPRLLogisticRegressionPoly2.dgCMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLogisticRegressionPoly2_dgCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
+#'@export
+update_FTPRLLogisticRegressionPoly2.CSCMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLogisticRegressionPoly2_CSCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+}
+
+#'@export
+predict_FTPRLLogisticRegressionPoly2.matrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLogisticRegressionPoly2_matrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
+#'@export
+predict_FTPRLLogisticRegressionPoly2.dgCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLogisticRegressionPoly2_dgCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
+#'@export
+predict_FTPRLLogisticRegressionPoly2.CSCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLogisticRegressionPoly2_CSCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+}
+
+#'@export
 update_FTPRLNeuronNetwork.matrix <- function(Rm, y, Rlearner) {
     invisible(.Call('BridgewellML_update_FTPRLNeuronNetwork_matrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
