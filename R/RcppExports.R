@@ -12,8 +12,8 @@ update_FTPRLCensoredRegression.dgCMatrix <- function(Rm, y, is_observed, Rlearne
 }
 
 #'@export
-update_FTPRLCensoredRegression.CSRMatrix <- function(Rm, y, is_observed, Rlearner) {
-    invisible(.Call('BridgewellML_update_FTPRLCensoredRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, y, is_observed, Rlearner))
+update_FTPRLCensoredRegression.CSCMatrix <- function(Rm, y, is_observed, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLCensoredRegression_CSCMatrix', PACKAGE = 'BridgewellML', Rm, y, is_observed, Rlearner))
 }
 
 #'@export
@@ -27,8 +27,8 @@ predict_FTPRLCensoredRegression.dgCMatrix <- function(Rm, Rlearner) {
 }
 
 #'@export
-predict_FTPRLCensoredRegression.CSRMatrix <- function(Rm, Rlearner) {
-    .Call('BridgewellML_predict_FTPRLCensoredRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+predict_FTPRLCensoredRegression.CSCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLCensoredRegression_CSCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 
 #'@export
@@ -42,8 +42,8 @@ update_FTPRLLinearRegression.dgCMatrix <- function(Rm, y, Rlearner) {
 }
 
 #'@export
-update_FTPRLLinearRegression.CSRMatrix <- function(Rm, y, Rlearner) {
-    invisible(.Call('BridgewellML_update_FTPRLLinearRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+update_FTPRLLinearRegression.CSCMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLinearRegression_CSCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
 
 #'@export
@@ -57,8 +57,8 @@ predict_FTPRLLinearRegression.dgCMatrix <- function(Rm, Rlearner) {
 }
 
 #'@export
-predict_FTPRLLinearRegression.CSRMatrix <- function(Rm, Rlearner) {
-    .Call('BridgewellML_predict_FTPRLLinearRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+predict_FTPRLLinearRegression.CSCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLinearRegression_CSCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 
 #'@export
@@ -72,8 +72,8 @@ update_FTPRLLogisticRegression.dgCMatrix <- function(Rm, y, Rlearner) {
 }
 
 #'@export
-update_FTPRLLogisticRegression.CSRMatrix <- function(Rm, y, Rlearner) {
-    invisible(.Call('BridgewellML_update_FTPRLLogisticRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+update_FTPRLLogisticRegression.CSCMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLLogisticRegression_CSCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
 
 #'@export
@@ -87,8 +87,8 @@ predict_FTPRLLogisticRegression.dgCMatrix <- function(Rm, Rlearner) {
 }
 
 #'@export
-predict_FTPRLLogisticRegression.CSRMatrix <- function(Rm, Rlearner) {
-    .Call('BridgewellML_predict_FTPRLLogisticRegression_CSRMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+predict_FTPRLLogisticRegression.CSCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLLogisticRegression_CSCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 
 #'@export
@@ -102,8 +102,8 @@ update_FTPRLNeuronNetwork.dgCMatrix <- function(Rm, y, Rlearner) {
 }
 
 #'@export
-update_FTPRLNeuronNetwork.CSRMatrix <- function(Rm, y, Rlearner) {
-    invisible(.Call('BridgewellML_update_FTPRLNeuronNetwork_CSRMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
+update_FTPRLNeuronNetwork.CSCMatrix <- function(Rm, y, Rlearner) {
+    invisible(.Call('BridgewellML_update_FTPRLNeuronNetwork_CSCMatrix', PACKAGE = 'BridgewellML', Rm, y, Rlearner))
 }
 
 #'@export
@@ -117,8 +117,8 @@ predict_FTPRLNeuronNetwork.dgCMatrix <- function(Rm, Rlearner) {
 }
 
 #'@export
-predict_FTPRLNeuronNetwork.CSRMatrix <- function(Rm, Rlearner) {
-    .Call('BridgewellML_predict_FTPRLNeuronNetwork_CSRMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
+predict_FTPRLNeuronNetwork.CSCMatrix <- function(Rm, Rlearner) {
+    .Call('BridgewellML_predict_FTPRLNeuronNetwork_CSCMatrix', PACKAGE = 'BridgewellML', Rm, Rlearner)
 }
 
 .get_w <- function(RLearner) {

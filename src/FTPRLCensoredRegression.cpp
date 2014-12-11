@@ -47,8 +47,8 @@ void update_FTPRLCensoredRegression_dgCMatrix(S4 Rm, NumericVector y, LogicalVec
 }
 
 //'@export
-// [[Rcpp::export("update_FTPRLCensoredRegression.CSRMatrix")]]
-void update_FTPRLCensoredRegression_CSRMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner) {
+// [[Rcpp::export("update_FTPRLCensoredRegression.CSCMatrix")]]
+void update_FTPRLCensoredRegression_CSCMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner) {
   IntegerVector dim(Rm.slot("Dim"));
   if (dim[1] != y.size()) throw std::invalid_argument("");
   update_FTPRLCensoredRegression<S4, dgCMatrixProxy, int>(Rm, y, is_observed, Rlearner);
@@ -79,7 +79,7 @@ SEXP predict_FTPRLCensoredRegression_dgCMatrix(S4 Rm, S4 Rlearner) {
 }
 
 //'@export
-// [[Rcpp::export("predict_FTPRLCensoredRegression.CSRMatrix")]]
-SEXP predict_FTPRLCensoredRegression_CSRMatrix(S4 Rm, S4 Rlearner) {
+// [[Rcpp::export("predict_FTPRLCensoredRegression.CSCMatrix")]]
+SEXP predict_FTPRLCensoredRegression_CSCMatrix(S4 Rm, S4 Rlearner) {
   return predict_FTPRLCensoredRegression<S4, dgCMatrixProxy, int>(Rm, Rlearner);
 }

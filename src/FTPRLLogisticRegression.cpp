@@ -32,8 +32,8 @@ void update_FTPRLLogisticRegression_dgCMatrix(S4 Rm, LogicalVector y, S4 Rlearne
 }
 
 //'@export
-// [[Rcpp::export("update_FTPRLLogisticRegression.CSRMatrix")]]
-void update_FTPRLLogisticRegression_CSRMatrix(S4 Rm, LogicalVector y, S4 Rlearner) {
+// [[Rcpp::export("update_FTPRLLogisticRegression.CSCMatrix")]]
+void update_FTPRLLogisticRegression_CSCMatrix(S4 Rm, LogicalVector y, S4 Rlearner) {
   IntegerVector dim(Rm.slot("Dim"));
   if (dim[1] != y.size()) throw std::invalid_argument("");
   update_FTPRLLogisticRegression<S4, dgCMatrixProxy, int>(Rm, y, Rlearner);
@@ -64,7 +64,7 @@ SEXP predict_FTPRLLogisticRegression_dgCMatrix(S4 Rm, S4 Rlearner) {
 }
 
 //'@export
-// [[Rcpp::export("predict_FTPRLLogisticRegression.CSRMatrix")]]
-SEXP predict_FTPRLLogisticRegression_CSRMatrix(S4 Rm, S4 Rlearner) {
+// [[Rcpp::export("predict_FTPRLLogisticRegression.CSCMatrix")]]
+SEXP predict_FTPRLLogisticRegression_CSCMatrix(S4 Rm, S4 Rlearner) {
   return predict_FTPRLLogisticRegression<S4, dgCMatrixProxy, int>(Rm, Rlearner);
 }

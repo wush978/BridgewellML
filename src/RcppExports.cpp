@@ -35,9 +35,9 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// update_FTPRLCensoredRegression_CSRMatrix
-void update_FTPRLCensoredRegression_CSRMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner);
-RcppExport SEXP BridgewellML_update_FTPRLCensoredRegression_CSRMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP is_observedSEXP, SEXP RlearnerSEXP) {
+// update_FTPRLCensoredRegression_CSCMatrix
+void update_FTPRLCensoredRegression_CSCMatrix(S4 Rm, NumericVector y, LogicalVector is_observed, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLCensoredRegression_CSCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP is_observedSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     {
         Rcpp::RNGScope __rngScope;
@@ -45,7 +45,7 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP );
         Rcpp::traits::input_parameter< LogicalVector >::type is_observed(is_observedSEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        update_FTPRLCensoredRegression_CSRMatrix(Rm, y, is_observed, Rlearner);
+        update_FTPRLCensoredRegression_CSCMatrix(Rm, y, is_observed, Rlearner);
     }
     return R_NilValue;
 END_RCPP
@@ -82,16 +82,16 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// predict_FTPRLCensoredRegression_CSRMatrix
-SEXP predict_FTPRLCensoredRegression_CSRMatrix(S4 Rm, S4 Rlearner);
-RcppExport SEXP BridgewellML_predict_FTPRLCensoredRegression_CSRMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+// predict_FTPRLCensoredRegression_CSCMatrix
+SEXP predict_FTPRLCensoredRegression_CSCMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLCensoredRegression_CSCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        SEXP __result = predict_FTPRLCensoredRegression_CSRMatrix(Rm, Rlearner);
+        SEXP __result = predict_FTPRLCensoredRegression_CSCMatrix(Rm, Rlearner);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -126,16 +126,16 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// update_FTPRLLinearRegression_CSRMatrix
-void update_FTPRLLinearRegression_CSRMatrix(S4 Rm, NumericVector y, S4 Rlearner);
-RcppExport SEXP BridgewellML_update_FTPRLLinearRegression_CSRMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+// update_FTPRLLinearRegression_CSCMatrix
+void update_FTPRLLinearRegression_CSCMatrix(S4 Rm, NumericVector y, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLLinearRegression_CSCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< NumericVector >::type y(ySEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        update_FTPRLLinearRegression_CSRMatrix(Rm, y, Rlearner);
+        update_FTPRLLinearRegression_CSCMatrix(Rm, y, Rlearner);
     }
     return R_NilValue;
 END_RCPP
@@ -172,16 +172,16 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// predict_FTPRLLinearRegression_CSRMatrix
-SEXP predict_FTPRLLinearRegression_CSRMatrix(S4 Rm, S4 Rlearner);
-RcppExport SEXP BridgewellML_predict_FTPRLLinearRegression_CSRMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+// predict_FTPRLLinearRegression_CSCMatrix
+SEXP predict_FTPRLLinearRegression_CSCMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLLinearRegression_CSCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        SEXP __result = predict_FTPRLLinearRegression_CSRMatrix(Rm, Rlearner);
+        SEXP __result = predict_FTPRLLinearRegression_CSCMatrix(Rm, Rlearner);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -216,16 +216,16 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// update_FTPRLLogisticRegression_CSRMatrix
-void update_FTPRLLogisticRegression_CSRMatrix(S4 Rm, LogicalVector y, S4 Rlearner);
-RcppExport SEXP BridgewellML_update_FTPRLLogisticRegression_CSRMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+// update_FTPRLLogisticRegression_CSCMatrix
+void update_FTPRLLogisticRegression_CSCMatrix(S4 Rm, LogicalVector y, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLLogisticRegression_CSCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< LogicalVector >::type y(ySEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        update_FTPRLLogisticRegression_CSRMatrix(Rm, y, Rlearner);
+        update_FTPRLLogisticRegression_CSCMatrix(Rm, y, Rlearner);
     }
     return R_NilValue;
 END_RCPP
@@ -262,16 +262,16 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// predict_FTPRLLogisticRegression_CSRMatrix
-SEXP predict_FTPRLLogisticRegression_CSRMatrix(S4 Rm, S4 Rlearner);
-RcppExport SEXP BridgewellML_predict_FTPRLLogisticRegression_CSRMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+// predict_FTPRLLogisticRegression_CSCMatrix
+SEXP predict_FTPRLLogisticRegression_CSCMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLLogisticRegression_CSCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        SEXP __result = predict_FTPRLLogisticRegression_CSRMatrix(Rm, Rlearner);
+        SEXP __result = predict_FTPRLLogisticRegression_CSCMatrix(Rm, Rlearner);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -306,16 +306,16 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
-// update_FTPRLNeuronNetwork_CSRMatrix
-void update_FTPRLNeuronNetwork_CSRMatrix(S4 Rm, LogicalVector y, S4 Rlearner);
-RcppExport SEXP BridgewellML_update_FTPRLNeuronNetwork_CSRMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
+// update_FTPRLNeuronNetwork_CSCMatrix
+void update_FTPRLNeuronNetwork_CSCMatrix(S4 Rm, LogicalVector y, S4 Rlearner);
+RcppExport SEXP BridgewellML_update_FTPRLNeuronNetwork_CSCMatrix(SEXP RmSEXP, SEXP ySEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< LogicalVector >::type y(ySEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        update_FTPRLNeuronNetwork_CSRMatrix(Rm, y, Rlearner);
+        update_FTPRLNeuronNetwork_CSCMatrix(Rm, y, Rlearner);
     }
     return R_NilValue;
 END_RCPP
@@ -352,16 +352,16 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// predict_FTPRLNeuronNetwork_CSRMatrix
-SEXP predict_FTPRLNeuronNetwork_CSRMatrix(S4 Rm, S4 Rlearner);
-RcppExport SEXP BridgewellML_predict_FTPRLNeuronNetwork_CSRMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
+// predict_FTPRLNeuronNetwork_CSCMatrix
+SEXP predict_FTPRLNeuronNetwork_CSCMatrix(S4 Rm, S4 Rlearner);
+RcppExport SEXP BridgewellML_predict_FTPRLNeuronNetwork_CSCMatrix(SEXP RmSEXP, SEXP RlearnerSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< S4 >::type Rm(RmSEXP );
         Rcpp::traits::input_parameter< S4 >::type Rlearner(RlearnerSEXP );
-        SEXP __result = predict_FTPRLNeuronNetwork_CSRMatrix(Rm, Rlearner);
+        SEXP __result = predict_FTPRLNeuronNetwork_CSCMatrix(Rm, Rlearner);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
